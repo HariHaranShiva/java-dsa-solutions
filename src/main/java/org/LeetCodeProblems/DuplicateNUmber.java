@@ -1,6 +1,6 @@
-package org.example.draft;
-
-public class Duplicate {
+package org.LeetCodeProblems;
+//https://leetcode.com/problems/find-the-duplicate-number/submissions/1915911286/
+public class DuplicateNUmber {
     public static void main(String[] args) {
         int[] nums = {3,3,3,3,3};
         System.out.println(findDuplicate(nums));

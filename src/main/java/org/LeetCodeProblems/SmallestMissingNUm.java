@@ -1,34 +1,29 @@
 package org.LeetCodeProblems;
-
-import java.util.ArrayList;
-
-import java.util.List;
-
-public class DisappearedNUm {
+// https://leetcode.com/problems/first-missing-positive/submissions/1916673241/
+public class SmallestMissingNUm {
     public static void main(String[] args) {
-      //  int[] nums = {4,3,2,7,8,2,3,1};
-        int[] nums = {1,3,4,2,2};
-        System.out.println(cycle(nums));
+        int[] arr = {3, 4, -1, 1};
 
+        System.out.println(cyclingSort(arr));
     }
-    static List<Integer> cycle(int[] nums){
-        int i=0;
+    static int cyclingSort(int[] nums){
+        int i =0;
         while(i < nums.length){
             int correct = nums[i] - 1;
-            if(nums[i] != nums[correct]){
+            if(nums[i] > 0 && nums[i] <= nums.length && nums[i] != nums[correct]){
                 swap(nums, i, correct);
 
             }
             else i++;
         }
-        List<Integer> ans = new ArrayList<>();
         for (int index = 0; index < nums.length; index++) {
-            if(nums[index] != index + 1){
-                ans.add(index + 1);
+            if (nums[index] != index + 1) {
+                return index + 1;
 
             }
+
         }
-        return ans;
+        return nums.length + 1;
     }
     static void swap(int[] nums, int first, int second ){
         int temp = nums[first];
